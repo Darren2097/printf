@@ -4,7 +4,7 @@
 
 /**
  * check_specifier - specifically checks character type
- * @a: character.
+ * @x: character.
  *
  * Return: 0 when successful
  */
@@ -39,8 +39,7 @@ int (*check_specifier(const char x))(va_list)
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int num_char = 0;
+	int i = 0, num_char = 0;
 	va_list ar;
 
 	if (format == NULL)
@@ -52,12 +51,11 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '\0')
-			{
 				return (-1);
-			}
+
 			else if (format[i + 1] == '%')
 			{
-				write(1,'%',1);
+				write(1, '%', 1);
 				num_char++;
 				i++;
 			}
@@ -68,13 +66,13 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				write(1,format[i],1);
+				write(1, &format[i], 1);
 				num_char++;
 			}
 		}
 		else
 		{
-			write(1,&format[i],1);
+			write(1, &format[i], 1);
 			num_char++;
 		}
 		i++;
