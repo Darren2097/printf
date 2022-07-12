@@ -11,11 +11,20 @@
 int _printf(const char *format, ...)
 {
 	int i = 0;
+	int num_char = 0;
 
 	while (format[i])
 	{
-		write(1,&format[i],1);
+		if (format[i] == '%')
+		{
+			return (-1);
+		}
+		else
+		{
+			write(1,&format[i],1);
+			num_char++;
+		}
 		i++;
 	}
-	return (0);
+	return (num_char);
 }
