@@ -16,15 +16,15 @@ int _putchar(char c)
 
 /**
  * printc - Prints character
- * @ar: variadic function
+ * @list: variadic function
  *
  * Return: Always 0 (success)
  */
 
-int printc(va_list ar)
+int printc(va_list list)
 {
-	_putchar(va_arg(ar, int));
-	return (0);
+	_putchar(va_arg(list, int));
+	return (1);
 }
 
 /**
@@ -34,24 +34,68 @@ int printc(va_list ar)
  * Return: number of bytes
  */
 
-int print_str(va_list s)
+int print_string(va_list s)
 {
 	char *str;
-	int len;
+	int k;
 
-	str = va_arg(s, char *);
-
+	str = va_arg(s, char*);
 	if (str == NULL)
 	{
-		str = "(null)";
-		len = 0;
+		write(1, "(null)", 6);
+		return (6);
 	}
 	else
 	{
-		while (str[len] != '\0')
+		for (k = 0; str[k] != '\0'; k++)
 		{
-			len = len + _putchar(str[len]);
+			_putchar(str[k]);
 		}
 	}
-	return (len);
+	return (k);
+}
+
+/**
+ * print_n - Entry point. Print number
+ * @n: Variable va_list
+ *
+ * Return: count (nbytes)
+ */
+
+int print_n(va_list n)
+{
+	long int number;
+	int counter, aux_variable, base;
+
+	counter = 0;	
+	number = va_arg(n, int);
+
+	if (number < 0)
+	{
+		number *= -1;
+		_putchar(45);
+		counter++;
+	}
+	if (number >= 0 && number <= 9)
+	{
+		_putchar(number + 48);
+		counter++;
+	}
+	if (number > 9)
+	{
+		base = 10;
+		while (number / base > 9)
+		{
+			base *= 10;
+		}
+		while (base > 0)
+		{
+			aux_variable = number / base;
+			number = number % base;
+			_putchar(aux_variable + 48);
+			base = base / 10;
+			counter++;
+		}
+	}
+	return (counter);
 }

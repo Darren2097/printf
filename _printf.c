@@ -4,29 +4,30 @@
 
 /**
  * check_specifier - specifically checks character type
- * @x: character.
+ * @a: character.
  *
  * Return: 0 when successful
  */
 
-int (*check_specifier(const char x))(va_list)
+int (*cmp_func(const char a))(va_list)
 {
 	print_f printf[] = {
 		{'c', printc},
-		{'s', print_str},
+		{'s', print_string},
+		{'d', print_n},
+		{'i', print_n},
 		{'\0', NULL}
-		};
+	};
 
-	int j;
+	int k;
 
-	for (j = 0; printf[j].p != '\0'; j++)
+	for (k = 0; printf[k].p != '\0'; k++)
 	{
-		if (printf[j].p == x)
+		if (printf[k].p == a)
 		{
-			return (printf[j].func);
+			return (printf[k].func);
 		}
 	}
-
 	return (0);
 }
 
@@ -39,14 +40,14 @@ int (*check_specifier(const char x))(va_list)
 
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, num_char = 0;
-	va_list ar;
+	va_list list;
+	unsigned int i = 0, characters_number = 0;
 
-	if (format == NULL)
+	if (!format)
 		return (-1);
 
-	va_start(ar, format);
-	while (format[i] != '\0')
+	va_start(list, format);
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -55,28 +56,28 @@ int _printf(const char *format, ...)
 
 			else if (format[i + 1] == '%')
 			{
-				write(1, "%", 1);
-				num_char++;
+				_putchar('%');
+				characters_number++;
 				i++;
 			}
-			else if ((check_specifier(format[i + 1])) != NULL)
+			else if (cmp_func(format[i + 1]) != NULL)
 			{
-				num_char += (check_specifier(format[i + 1]))(ar);
+				characters_number += (cmp_func(format[i + 1]))(list);
 				i++;
 			}
 			else
 			{
-				write(1, &format[i], 1);
-				num_char++;
+				_putchar(format[i]);
+				characters_number++;
 			}
 		}
 		else
 		{
-			write(1, &format[i], 1);
-			num_char++;
+			_putchar(format[i]);
+			characters_number++;
 		}
-		i++;
 	}
-	va_end(ar);
-	return (num_char);
+	va_end(list);
+	return (characters_number);
 }
+
