@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
+#include <string.h>
 
 /**
  * struct types - type structure
@@ -24,7 +26,8 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int (*check_specifier(const char *c))(va_list);
 int printc(va_list ar);
-int print_str(va_list s);
-int print_n(va_list n);
+int print_str(va_list ar);
+int print_perc(va_list ar);
+int print_n(va_list ar);
 
 #endif

@@ -12,14 +12,15 @@ int (*check_specifier(const char *c))(va_list)
 	int k;
 
 	print_f printf[] = {
-		{'c', printc},
-		{'s', print_str},
-		{'d', print_n},
-		{'i', print_n},
+		{"c", printc},
+		{"s", print_str},
+		{"%", print_perc},
+		{"d", print_n},
+		{"i", print_n},
 		{NULL, NULL}
 	};
 
-	for (k = 0; printf[k].p != '\0'; k++)
+	for (k = 0; printf[k].p; k++)
 	{
 		if (*c == *(printf[k].p))
 		{
