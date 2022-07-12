@@ -1,5 +1,18 @@
 #include "main.h"
 #include <stdarg.h>
+#include <unistd.h>
+
+/**
+ * _putchar - writes characters
+ * @c: variable
+ *
+ * Return: void
+ */
+
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 
 /**
  * printc - Prints character
@@ -10,7 +23,7 @@
 
 int printc(va_list ar)
 {
-	write(1, va_arg(ar, int), 1);
+	_putchar(va_arg(ar, int));
 	return (0);
 }
 
@@ -36,7 +49,7 @@ int print_str(va_list s)
 	{
 		for (k = 0; str[k] != '\0'; k++)
 		{
-			write(1, str[k], 1);
+			write(1, &str[k], 1);
 		}
 	}
 	return (k);
