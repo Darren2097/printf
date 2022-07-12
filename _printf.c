@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 #include <stdarg.h>
 
 /**
@@ -16,7 +15,7 @@ int _printf(const char *format, ...)
 	va_list ar;
 
 	va_start(ar, format);
-	if (format == NULL)
+	if (format == NULL || !format[i + 1])
 		return (-1);
 	
 	while (format[i])
