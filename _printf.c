@@ -41,6 +41,7 @@ int (*cmp_func(const char a))(va_list)
 int _printf(const char *format, ...)
 {
 	va_list list;
+	int (*func)(va_list);
 	unsigned int i = 0, characters_number = 0;
 
 	if (!format)
