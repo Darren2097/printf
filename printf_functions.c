@@ -37,20 +37,21 @@ int printc(va_list ar)
 int print_str(va_list s)
 {
 	char *str;
-	int k;
+	int len;
 
-	str = va_arg(s, char*);
+	str = va_arg(s, char *);
+
 	if (str == NULL)
 	{
-		write(1, "(null)", 6);
-		return (6);
+		str = "(null)";
+		len = 0;
 	}
 	else
 	{
-		for (k = 0; str[k] != '\0'; k++)
+		while (str[len] != '\0')
 		{
-			write(1, &str[k], 1);
+			len = len + _putchar(str[len]);
 		}
 	}
-	return (k);
+	return (len);
 }
