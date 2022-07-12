@@ -14,5 +14,7 @@ typedef struct types
 
 int _printf(const char *format, ...);
 int (*check_specifier(const char x))(va_list);
+int printc(va_list ar);
+int print_str(va_list s);
 
 #endif

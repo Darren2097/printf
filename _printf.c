@@ -39,7 +39,7 @@ int (*check_specifier(const char x))(va_list)
 
 int _printf(const char *format, ...)
 {
-	int i = 0, num_char = 0;
+	unsigned int i = 0, num_char = 0;
 	va_list ar;
 
 	if (format == NULL)

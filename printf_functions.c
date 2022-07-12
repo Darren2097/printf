@@ -18,7 +18,7 @@ int printc(va_list ar)
  * print_str - Prints string
  * @s: variadic function
  *
- * Return: Always 0 (success)
+ * Return: number of bytes
  */
 
 int print_str(va_list s)
@@ -29,7 +29,8 @@ int print_str(va_list s)
 	str = va_arg(s, char*);
 	if (str == NULL)
 	{
-		return (NULL);
+		write(1, "(null)", 6);
+		return (6);
 	}
 	else
 	{
