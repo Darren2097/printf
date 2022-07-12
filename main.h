@@ -6,9 +6,17 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/**
+ * struct types - type structure
+ * @p: pointer
+ * @func: function
+ *
+ * Returb : nothing
+ */
+
 typedef struct types
 {
-	char p;
+	char *p;
 	int (*func)(va_list);
 } print_f;
 
