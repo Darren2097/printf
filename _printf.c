@@ -3,6 +3,34 @@
 #include <stdarg.h>
 
 /**
+ * check_specifier - specifically checks character type
+ * @a: character.
+ *
+ * Return: 0 when successful
+ */
+
+int (*check_specificer(const char x))(va_list)
+{
+	print_f printf[] = {
+		{'c', printc},
+		{'s', print_string},
+		{'\0', NULL}
+		};
+
+	int j;
+
+	for (j = 0; printf[j].p != '\0'; j++)
+	{
+		if (printf[j].p == x)
+		{
+			return (printf[j].func);
+		}
+	}
+
+	return (0);
+}
+
+/**
  * _printf - Function that produces output according to a format
  * @format: character string
  *
