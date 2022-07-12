@@ -13,7 +13,7 @@ int (*check_specifier(const char x))(va_list)
 {
 	print_f printf[] = {
 		{'c', printc},
-		{'s', print_string},
+		{'s', print_str},
 		{'\0', NULL}
 		};
 
