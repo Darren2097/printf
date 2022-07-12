@@ -22,9 +22,9 @@ typedef struct types
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int (*check_specifier(const char x))(va_list);
+int (*check_specifier(const char *c))(va_list);
 int printc(va_list ar);
-int print_string(va_list s);
+int print_str(va_list s);
 int print_n(va_list n);
 
 #endif

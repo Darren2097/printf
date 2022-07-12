@@ -21,9 +21,9 @@ int _putchar(char c)
  * Return: Always 0 (success)
  */
 
-int printc(va_list list)
+int printc(va_list ar)
 {
-	_putchar(va_arg(list, int));
+	_putchar(va_arg(ar, int));
 	return (1);
 }
 
@@ -34,7 +34,7 @@ int printc(va_list list)
  * Return: number of bytes
  */
 
-int print_string(va_list s)
+int print_str(va_list s)
 {
 	char *str;
 	int k;
