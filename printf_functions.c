@@ -10,7 +10,7 @@
 
 int printc(va_list ar)
 {
-	write(1,va_arg(ar, int), 1);
+	write(1, va_arg(ar, int), 1);
 	return (0);
 }
 
