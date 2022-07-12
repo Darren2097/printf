@@ -9,7 +9,7 @@
  * Return: 0 when successful
  */
 
-int (*check_specificer(const char x))(va_list)
+int (*check_specifier(const char x))(va_list)
 {
 	print_f printf[] = {
 		{'c', printc},
