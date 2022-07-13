@@ -59,6 +59,8 @@ int _printf(const char *format, ...)
 	fmt_t ops[] = {
 		{"c", ch},
 		{"s", str},
+		{"d", _int},
+		{"i", _int},
 		{NULL, NULL}
 	};
 
