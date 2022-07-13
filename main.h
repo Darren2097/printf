@@ -24,5 +24,9 @@ int str(va_list string);
 int _putchar(char c);
 int _int(va_list integer);
 int _bin(va_list binary);
+int _uint(va_list unsign);
+int _uoct(va_list oct);
+int _lowhex(va_list hexadecimal);
+int _uphex(va_list hexadecimal);
 
 #endif
