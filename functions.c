@@ -34,3 +34,37 @@ int str(va_list string)
 		len = len + _putchar(str[len]);
 	return (len);
 }
+
+/**
+ * _int - function to print integers
+ * @integ: list printed
+ *
+ * Return: Return count
+ */
+
+int _int(va_list integer)
+{
+	int a, exp = 1, len = 0;
+	unsigned int n;
+
+	a = va_arg(integer, int);
+
+	if (a < 0)
+	{
+		len = len + _putchar('-');
+		n = a * -1;
+	}
+	else
+		n = a;
+
+	while (n / exp > 9)
+		exp *= 10;
+
+	while (exp != 0)
+	{
+		len = len + _putchar(n / exp + '0');
+		n = n % exp;
+		exp = exp / 10;
+	}
+	return (len);
+}
