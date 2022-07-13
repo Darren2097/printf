@@ -29,6 +29,5 @@ int _uoct(va_list oct);
 int _lowhex(va_list hexadecimal);
 int _uphex(va_list hexadecimal);
 int _rot13(va_list rot);
-int _strrev(va_list s);
 
 #endif

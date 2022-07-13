@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
  * _bin - converts to binary
@@ -37,41 +36,6 @@ int _bin(va_list binary)
 		_putchar(arr[i] + '0');
 	}
 	free(arr);
-	return (count);
-}
-
-/**
- * _strrev - prints a reversed string
- * @s: is a pointer to a string
- *
- * Return: number of chars
- **/
-
-int _strrev(va_list s)
-{
-	int i, count, max, half;
-	char first, last;
-	char *str;
-
-	str = va_arg(s, char *);
-	i = 0;
-	while (str[i])
-	{
-		i++;
-		count++;
-	}
-	max = i - 1;
-	half = max / 2;
-
-
-	while (half >= 0)
-	{
-		first = str[max - half];
-		last = str[half];
-		str[half] = first;
-		str[max - half] = last;
-		half--;
-	}
 	return (count);
 }
 
