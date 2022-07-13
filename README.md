@@ -1,1 +1,1 @@
-_printf projec
+_printf project
