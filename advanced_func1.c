@@ -44,12 +44,12 @@ int _bin(va_list binary)
  * _strrev - prints a reversed string
  * @s: is a pointer to a string
  *
- * Return: void
+ * Return: number of chars
  **/
 
-void _strrev(va_list s)
+int _strrev(va_list s)
 {
-	int i, max, half;
+	int i, count, max, half;
 	char first, last;
 	char *str;
 
@@ -58,6 +58,7 @@ void _strrev(va_list s)
 	while (str[i])
 	{
 		i++;
+		count++;
 	}
 	max = i - 1;
 	half = max / 2;
@@ -71,6 +72,7 @@ void _strrev(va_list s)
 		str[max - half] = last;
 		half--;
 	}
+	return (count);
 }
 
 /**
