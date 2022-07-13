@@ -61,6 +61,7 @@ int _printf(const char *format, ...)
 		{"s", str},
 		{"d", _int},
 		{"i", _int},
+		{"b", _bin},
 		{NULL, NULL}
 	};
 

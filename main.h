@@ -23,6 +23,6 @@ int ch(va_list character);
 int str(va_list string);
 int _putchar(char c);
 int _int(va_list integer);
-
+int _bin(va_list binary);
 
 #endif
