@@ -67,6 +67,7 @@ int _printf(const char *format, ...)
 		{"x", _lowhex},
 		{"X", _uphex},
 		{"R", _rot13},
+		{"r", _strrev},
 		{NULL, NULL}
 	};
 
