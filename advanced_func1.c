@@ -47,15 +47,15 @@ int _bin(va_list binary)
  * Return: void
  **/
 
-void _strrev(va_list *s)
+void _strrev(va_list s)
 {
 	int i, max, half;
-
 	char first, last;
+	char *str;
 
+	str = va_arg(s, char *);
 	i = 0;
-
-	while (s[i])
+	while (str[i])
 	{
 		i++;
 	}
@@ -65,14 +65,13 @@ void _strrev(va_list *s)
 
 	while (half >= 0)
 	{
-		first = s[max - half];
-		last = s[half];
-		s[half] = first;
-		s[max - half] = last;
+		first = str[max - half];
+		last = str[half];
+		str[half] = first;
+		str[max - half] = last;
 		half--;
 	}
 }
-
 
 /**
  * _rot13 - prints rot13 version
